@@ -11,40 +11,42 @@ Se puede quitar o cambiar la advertencia que tira cuando jugás con más de 3 da
 ## Output
 El output tipicamente se vería así
 
--------------------------------------
-
+```
 Attack: 1   Defense: 1
 
 Attacker wins 0: 58.33%
-
 Attacker wins 1: 41.67%
 
 Favorable result for attacker: 41.67%
+```
 
--------------------------------------
+'Attacker wins N: P' significa que la probabilidad de que el atacante gane una cantidad de N tiradas de dados es P. En este ejemplo, la probabilidad de que el atacante gane 1 tirada de dado es del 41.67%. Si la probabilidad es 0, no se muestra. Los casos favorables son todos los casos en los que el atacante gana más de lo que perdió. Los casos neutros son en los que el atacante pierde lo mismo que el defensor.
 
-'Attacker wins N: P' significa que la probabilidad de que el atacante gane una cantidad de N tiradas de dados es P. En este ejemplo, la probabilidad de que el atacante gane 1 tirada de dado es del 41.67%. Si la probabilidad es 0, no se muestra. Los casos favorables son todos los casos en los que el atacante gana más de lo que perdió. Los casos neutros son los que el atacante pierde lo mismo que el defensor.
-
-## Algunos casos interesantes
+## Algunos datos interesantes
 * Si atacás 1 a 1, las probabilidades de ganar son 41.67%... bastaaante lejos del 50%
 * Si atacás 3 a 1, _el mejor de los casos en el juego original_, tenés **solo un 65.97%** de probabilidades de ganar.
 * Si atacás 3 a 3, la probabilidad de perder los 3, o sea, _el peor de todos los casos_, **es 38.3%**; altísimo para ser el peor caso..
 
 ## Score
-La puntuación es una referencia de que tan bueno es el movimiento. Como todo el programa, no tiene en cuenta el contexto, claro; si para ganar solo te falta un país y tenés tropas para tomarlo, atacalo, no importa lo que diga la puntuación, obvio.
+La puntuación es como una referencia de que tan bueno es el movimiento. Como todo el programa, no tiene en cuenta el contexto, claro; si para ganar solo te falta un país y tenés tropas para tomarlo, atacalo, no importa lo que diga la puntuación, obvio. En general, es una forma de comparar que tan eficaces son los ataques entre sí.
 
 Ahora, la puntuación se calcula con esta formula: 
 
-    $`S = (x - N / 2) * P(x) * 100`$
+```
+S = (x - N / 2) * P(x) * 100
 
 Siendo:
 * S, la puntuación
-* x, el número de dados que ganó el atacante
+* x, la cantidad de dados que ganó el atacante
 * N, la cantidad de dados que se jugaron
 * P(x), la probabilidad de que se ganen esa cantidad de dados (habiendo tirado N en total)
 
+Se escala por 100 para que se vea más fácil
+```
 
-## Conclusiones
-Atacar, es bastante más jugado de lo que uno pensaría, aún cuando se tienen muchos ejercitos. Además, siento que **no** tenemos en la cabeza un valor cercano al real de las probabilidades en el juego (supongo que es parte de la gracia igual, no?). 
+Como se ve en la fórmula, la puntuación toma en cuenta la cantidad de dados que se ganó, así como la cantidad de dados que se tiraron _(no es lo mismo ganar 1 habiendo tirado 1, que ganar 1 habiendo tirado 3)_ y la probabilidad de que pase.
 
+Cuanto más negativa es la puntuación, menos le conviene al atacante. Casi todas las puntuaciones de los ataques son negativas, porque no conviene atacar; pero algunas obvias sí tienen una puntuación positiva: 3:1, 3:2 y 2:1.
+
+La puntuación se basa en la idea de que si ambos jugadores pierden la misma cantidad de tropas, es un desenlace neutro. También se puede pensar como que si en un caso hipotético se jugara esa batalla 100 veces, el atacante en promedio debería haber conseguido aventajar al defensor por _\<puntuación\>_ tropas más de las que tenían de diferencia. O si la puntuación es negativa, por ejemplo -20, luego de jugar esa batalla 100 veces, en promedio el atacante debería haber perdido 20 tropas _MÁS_ que el defensor.
 

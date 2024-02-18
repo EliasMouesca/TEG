@@ -3,6 +3,7 @@ Un programa que calcula las probabilidad de un ataque aislado teniendo en cuenta
 
 ## Uso
 ./teg.py \<número de dados del atacante\> \<número de dados del defensor\>
+
 ./teg.py            \# valores por defecto
 
 Se puede quitar o cambiar la advertencia que tira cuando jugás con más de 3 dados, revisar las globales al principio del archivo.
@@ -12,7 +13,7 @@ El output tipicamente se vería así
 
 -------------------------------------
 
-Attack: 1         Defense: 1
+Attack: 1   Defense: 1
 
 Attacker wins 0: 58.33%
 
@@ -26,6 +27,11 @@ Favorable result for attacker: 41.67%
 
 
 ## Algunos casos interesantes
+* Si atacás 1 a 1, las probabilidades de ganar son 41.67%... bastaaante lejos del 50%
+* Si atacás 3 a 1, _el mejor de los casos en el juego original_, tenés **solo un 65.97%** de probabilidades de ganar.
+* Si atacás 3 a 3, la probabilidad de perder los 3, o sea, _el peor de todos los casos_, **es 38.3%**; altísimo para ser el peor caso..
 
+## Conclusiones
+Atacar, es bastante más jugado de lo que uno pensaría, aún cuando se tienen muchos ejercitos. Además, siento que **no** tenemos en la cabeza un valor cercano al real de las probabilidades en el juego (supongo que es parte de la gracia igual, no?). 
 
 

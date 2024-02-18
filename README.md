@@ -12,9 +12,10 @@ El output tipicamente se vería así
 
 -------------------------------------
 
-Attack: 1  	Defense: 1
+Attack: 1         Defense: 1
 
 Attacker wins 0: 58.33%
+
 Attacker wins 1: 41.67%
 
 Favorable result for attacker: 41.67%

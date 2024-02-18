@@ -25,11 +25,17 @@ Favorable result for attacker: 41.67%
 
 'Attacker wins N: P' significa que la probabilidad de que el atacante gane una cantidad de N tiradas de dados es P. En este ejemplo, la probabilidad de que el atacante gane 1 tirada de dado es del 41.67%. Si la probabilidad es 0, no se muestra. Los casos favorables son todos los casos en los que el atacante gana más de lo que perdió. Los casos neutros son los que el atacante pierde lo mismo que el defensor.
 
-
 ## Algunos casos interesantes
 * Si atacás 1 a 1, las probabilidades de ganar son 41.67%... bastaaante lejos del 50%
 * Si atacás 3 a 1, _el mejor de los casos en el juego original_, tenés **solo un 65.97%** de probabilidades de ganar.
 * Si atacás 3 a 3, la probabilidad de perder los 3, o sea, _el peor de todos los casos_, **es 38.3%**; altísimo para ser el peor caso..
+
+## Score
+La puntuación es una referencia de que tan bueno es el movimiento. Como todo el programa, no tiene en cuenta el contexto, claro; si para ganar solo te falta un país y tenés tropas para tomarlo, atacalo, no importa lo que diga la puntuación, obvio.
+
+Ahora, la puntuación se calcula con esta formula: 
+    $`\score = (x - N / 2) * P(x) * 100`$
+
 
 ## Conclusiones
 Atacar, es bastante más jugado de lo que uno pensaría, aún cuando se tienen muchos ejercitos. Además, siento que **no** tenemos en la cabeza un valor cercano al real de las probabilidades en el juego (supongo que es parte de la gracia igual, no?). 

@@ -34,7 +34,7 @@ Favorable result for attacker: 41.67%
 La puntuación es una referencia de que tan bueno es el movimiento. Como todo el programa, no tiene en cuenta el contexto, claro; si para ganar solo te falta un país y tenés tropas para tomarlo, atacalo, no importa lo que diga la puntuación, obvio.
 
 Ahora, la puntuación se calcula con esta formula: 
-    $`\score = (x - N / 2) * P(x) * 100`$
+    $`score = (x - N / 2) * P(x) * 100`$
 
 
 ## Conclusiones

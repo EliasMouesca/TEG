@@ -66,7 +66,7 @@ def main():
     
     # No negatives..
     if (attack_num_of_dices <= 0 or defense_num_of_dices <= 0):
-        print("Number of dices must be non negative")
+        print("Number of dices must be strictly positive")
         exit(1)
 
     # If needed, warn about the maximum dices allowed

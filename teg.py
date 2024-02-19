@@ -6,7 +6,6 @@ import sys
 max_suggestion = 3              # You can enter more, but it will take some time. Also, rules specify a maximum of 3 dices.
 max_warning_enabled = True
 
-# 
 def calculate(attack_num_of_dices, defense_num_of_dices):
     number_of_posible_cases = max(attack_num_of_dices, defense_num_of_dices) + 1
     attacker_performance = [0] * number_of_posible_cases
@@ -81,16 +80,19 @@ def main():
     favorable_result_chance = .0
     neutral_result_chance = .0
     score = .0
+    loss = .0
     number_of_rolls = min(attack_num_of_dices, defense_num_of_dices)
 
     for i in range(0, len(results)):
         if (results[i] != 0.0): 
             print(f"Attacker wins {i}: {round(results[i] * 100, 2)}%")
             score += (i - number_of_rolls / 2) * results[i] * 100
+            loss += (number_of_rolls - i) * results[i]
             if (i > number_of_rolls / 2): favorable_result_chance += results[i]     # If this is true, the attacker won more than he lost: favorable result
             if (i == number_of_rolls / 2): neutral_result_chance += results[i]      # Both attacker and defender lost the same amount
 
     print (f"\nScore: {round(score, 2)}")
+    print (f"Average lost: {round(loss, 2)}")
     
     print (f"\nFavorable result for attacker: {round(favorable_result_chance * 100, 2)}%")
     if (neutral_result_chance != 0.): print (f"Neutral result: {round(neutral_result_chance * 100, 2)}%")

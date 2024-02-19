@@ -1,10 +1,10 @@
 # Probabilidades del TEG
 Un programa que calcula las probabilidad de un ataque aislado teniendo en cuenta el número de dados con que juega cada jugador. El programa no tiene en cuenta ningún tipo de contexto, por ejemplo, no es lo mismo jugar 3 dados contra 3 dados teniendo 4 ejercitos que teniendo 10. Hay en github otro repo que tiene en cuenta los intentos reiterados de conquista, muy interesante, sugiero chequearlo.
 
+En el readme y en los comentarios del código si ven que digo 'una batalla 2:3', por ejemplo, me refiero a que un jugador ataca con 2 ejercitos (es decir en su país tiene 3) y el otro defiende con 3. En general, todo el programa está enfocado desde el lado del atacante que es el que controla qué se ataca y cuando.
+
 ## Uso
 ./teg.py \<número de dados del atacante\> \<número de dados del defensor\>
-
-./teg.py            \# valores por defecto
 
 Se puede quitar o cambiar la advertencia que tira cuando jugás con más de 3 dados, revisar las globales al principio del archivo.
 
@@ -30,7 +30,7 @@ Favorable result for attacker: 41.67%
 ## Score
 La puntuación es como una referencia de que tan bueno es el movimiento. Como todo el programa, no tiene en cuenta el contexto, claro; si para ganar solo te falta un país y tenés tropas para tomarlo, atacalo, no importa lo que diga la puntuación, obvio. En general, es una forma de comparar que tan eficaces son los ataques entre sí.
 
-Ahora, la puntuación se calcula con esta formula: 
+La puntuación se calcula con esta formula: 
 
 ```
 S = (x - N / 2) * P(x) * 100
@@ -44,7 +44,7 @@ Siendo:
 Se escala por 100 para que se vea más fácil
 ```
 
-Como se ve en la fórmula, la puntuación toma en cuenta la cantidad de dados que se ganó, así como la cantidad de dados que se tiraron _(no es lo mismo ganar 1 habiendo tirado 1, que ganar 1 habiendo tirado 3)_ y la probabilidad de que pase.
+Como se ve en la fórmula, la puntuación toma en cuenta la cantidad de dados que ganó el atacante, así como la cantidad de dados que se jugaron _(no es lo mismo ganar 1 habiendo jugado a 1, que ganar 1 habiendo jugado a 3)_ y la probabilidad de que pase.
 
 Cuanto más negativa es la puntuación, menos le conviene al atacante. Casi todas las puntuaciones de los ataques son negativas, porque no conviene atacar; pero algunas obvias sí tienen una puntuación positiva: 3:1, 3:2 y 2:1.
 
@@ -55,7 +55,7 @@ Parte del porqué hice este programa es para resolver la pregunta de: si tengo e
 
 La respuesta es -_mas o menos_- la puntuación de las batallas que se vayan a jugar. Antes de empezar, necesitamos estimar vagamente cuantas y de que tipo, batallas vamos a jugar. Por ejemplo, si quiero atacar un pais defendido por 4 ejercitos (y quiero equilibrar las probabilidades), mínimo voy a poner 4 ejercitos para atacar, ya con eso podemos saber que va a tomar lugar una batalla 3:3. Si ejecutamos el programa con la batalla 3:3 nos va a decir que la perdida de tropas media (para el atacante) en el caso de la 3:3 es de 1.89. Podemos imaginar que luego de esa batalla contaríamos con 2.11 tropas, jugaríamos nosotros con 2 tropas, y el otro, va a perder en promedio un poco menos, pero podemos asumir que juega con el mismo número que nosotros. Entonces con 2.11 tropas jugaríamos una 2:2, con perdida media de 1.22; lo que nos dejaría en 0.89. Finalmente, podríamos decir que jugamos una más 1:1. 
 
-Entonces, tenemos la idea de que quizá jugaríamos una 3:3, una 2:2 y una 1:1. Si sumamos la puntuación de cada una de las batallas que suponemos peleariamos, y agregamos esa suma a las tropas iniciales que teníamos (igual a las tropas del pais que queremos atacar), llegamos a un número que suele estar cerca de lo que sería una batalla justa.
+Entonces, tenemos la idea de que quizá jugaríamos una 3:3, una 2:2 y una 1:1. Si sumamos la puntuación de cada una de las batallas que suponemos pelearíamos, y agregamos esa suma a las tropas iniciales que teníamos (la misma cantidad que tiene el país que se defiende), llegamos a un número que suele estar cerca de lo que sería una batalla justa (_justa, no favorable_).
 
 Todo esto tampoco tiene mucha importancia igual porque si uno se molesta en hacer los calculos, para todos los casos, por lo menos hasta el 10, alcanza con sumarle 1 tropa que ataque más y las probabilidades ya están a nuestro favor. Pero bueno..
 
